@@ -44,6 +44,6 @@ class Invoice(models.Model):
 
     def _get_discount(self):
         for line in invoice_line_ids:
-            self.discount = sum(line.quantity*line.price_unit-line.price_subtotal)
+            self.discount += (line.quantity*line.price_unit)-line.price_subtotal
 
 
