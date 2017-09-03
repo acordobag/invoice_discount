@@ -36,7 +36,7 @@ class Invoice(models.Model):
 
     @api.onchange('discount_porcentage')
     def _set_global_discount(self):
-        for line in invoice_line_ids:
+        for line in self.invoice_line_ids:
             line.discount=self.discount_porcentage
 
 
