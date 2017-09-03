@@ -32,11 +32,18 @@ class Invoice(models.Model):
     """
     _inherit = 'account.invoice'
 
-    discount_porcentage = fields.Float(string='Descuento')
+    discount_porcentage = fields.Float(string='Descuento(%)')    
+    discount = fields.Float(
+        store=True, string='Descuento',
+        compute='_get_discount')
 
     @api.onchange('discount_porcentage')
     def _set_global_discount(self):
         for line in invoice_line_ids:
             line.discount=self.discount_porcentage
+
+    def _get_discount(self):
+        for line in invoice_line_ids:
+            self.discount = sum(line.quantity*line.price_unit-line.price_subtotal)
 
 

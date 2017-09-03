@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        
         <record model="ir.ui.view" id="view_account_invoice_form_inh_discount">
             <field name="name">view.account.invoice.form.inh.discount</field>
             <field name="model">account.invoice</field>
@@ -9,6 +8,9 @@
             <field name="arch" type="xml">
                 <field name="payment_term_id" position="after">
                     <field name="discount_porcentage"/>
+                </field>
+                <field name="amount_tax" position="after">
+                    <field name="discount"/>
                 </field>
             </field>
         </record>
@@ -20,8 +22,10 @@
                 <field name="reference" position="after">
                     <field name="discount_porcentage"/>
                 </field>
+                <field name="amount_tax" position="after">
+                    <field name="discount"/>
+                </field>
             </field>
         </record>
-               
     </data>
 </odoo>
