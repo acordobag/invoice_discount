@@ -9,9 +9,6 @@
                 <field name="payment_term_id" position="after">
                     <field name="discount_porcentage"/>
                 </field>
-                <field name="amount_tax" position="after">
-                    <field name="discount"/>
-                </field>
             </field>
         </record>
         <record model="ir.ui.view" id="view_account_invoice_supplier_form_inh_discount">
@@ -21,9 +18,6 @@
             <field name="arch" type="xml">
                 <field name="reference" position="after">
                     <field name="discount_porcentage"/>
-                </field>
-                <field name="amount_tax" position="after">
-                    <field name="discount"/>
                 </field>
             </field>
         </record>
