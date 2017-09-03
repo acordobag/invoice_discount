@@ -43,7 +43,11 @@ class Invoice(models.Model):
             line.discount=self.discount_porcentage
 
     def _get_discount(self):
+        temp=20
         for line in invoice_line_ids:
-            self.discount += (line.quantity*line.price_unit)-line.price_subtotal
+            sumated = line.quantity*line.price_unit-line.price_subtotal
+            temp += sumated
+
+        self.discount=temp
 
 
